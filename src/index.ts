@@ -8,7 +8,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import { ErrorHandler } from "./middleware/errorHandler";
-import { __port__ } from "./util/constants";
+import { __is_prod__, __port__ } from "./util/constants";
 import { connectToDatabase } from "./database";
 import routes from "./routes";
 
@@ -19,7 +19,13 @@ connectToDatabase();
 let app = express();
 
 //all the middlewares
-app.use(cors());
+app.use(
+  cors({
+    origin: __is_prod__
+      ? "https://quizzical-hawking-109c38.netlify.app"
+      : "http://localhost:3000",
+  })
+);
 app.use(helmet());
 app.use(morgan("common"));
 app.use(express.json());
