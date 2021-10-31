@@ -7,8 +7,8 @@ import {
 
 let depRouter = Router();
 
-depRouter.get("/", getAllDeploymentController);
-depRouter.delete("/", deleteDeploymentController);
+depRouter.get("/all", getAllDeploymentController);
+depRouter.post("/delete", deleteDeploymentController);
 depRouter.post("/create", createDeploymentController);
 
 export default depRouter;

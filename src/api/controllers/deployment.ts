@@ -33,7 +33,8 @@ export let createDeploymentController = async (
   next: NextFunction
 ) => {
   let valid = validate(req.body, deploymentValidation);
-  if (validate === undefined) {
+
+  if (valid === undefined) {
     //if valid === undefined that means the schema validation does not have any issues
     let new_dep = await createDeployment(req.body);
     res.send({

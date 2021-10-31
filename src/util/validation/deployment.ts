@@ -5,12 +5,10 @@ export let deploymentValidation = {
   },
   deployedAt: {
     type: "date",
-    presence: true,
   },
   url: {
     type: "string",
-    persence: true,
-    url: true,
+    presence: true,
   },
   versions: {
     type: "array",

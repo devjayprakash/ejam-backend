@@ -22,6 +22,8 @@ let app = express();
 app.use(cors());
 app.use(helmet());
 app.use(morgan("common"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //don't place it below 404 handler and the request will not ever reach this middleware
 app.use("/api/v1", routes);

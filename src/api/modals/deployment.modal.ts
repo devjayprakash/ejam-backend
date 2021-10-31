@@ -21,12 +21,7 @@ let DeploymentSchema = new Schema({
     required: true,
   },
   versions: {
-    type: [
-      {
-        type: String,
-        unique: true,
-      },
-    ],
+    type: [String],
     default: [],
   },
 });
